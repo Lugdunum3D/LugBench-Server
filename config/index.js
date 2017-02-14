@@ -1,6 +1,6 @@
 module.exports = {
 	server: {
-		port: 6900
+		port: 5000
 	},
 	db: {
 		'lugbenchmark': {
