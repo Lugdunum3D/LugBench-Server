@@ -1,16 +1,16 @@
 {
-  "name": "lugdunum-benchmarking",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+    "name": "lugdunum-benchmarking",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
     "scripts": {
-	"start":"node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.14.1",
-    "mongoose": "^4.8.2"
-  }
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.14.1",
+        "mongoose": "^4.8.2"
+    }
 }
