@@ -14,7 +14,7 @@ server.put('/benchmark', function(req, res) {
 	res.sendStatus(200);
 });
 
-server.listen(config.server.port, (err) => {
+server.listen(process.env.PORT || config.server.port, (err) => {
 	if(err) {
 		console.err(err);
 	} else {
