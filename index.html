@@ -3,18 +3,39 @@
 
     <head>
         <title>Lugdunum benchmark</title>
+        <link rel="stylesheet" href="./css/master.css">
     </head>
 
-    <body style="text-align: center">
-        <h1>TEST</h1>
-        <table>
-            <tr>
-                <th></th>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
+    <body>
+        <div class="container">
+            <h1>Doc benchmarking server</h1>
+            <hr>
+            <section>
+                <h2>Retrieve all vulkaninfos</h2>
+                <code>
+                    GET /vulkaninfos
+                </code>
+            </section>
+            <section>
+                <h2>Retrieve a speific vulkaninfo</h2>
+                <code>
+                    GET /vulkaninfo/:id
+                </code>
+            </section>
+            <section>
+                <h2>Insert a new vulkaninfo</h2>
+                <code>
+                    PUT /vulkaninfo
+                </code>
+                <div>
+                    See the datas to send
+                    <a href="/bodytosend">here</a>
+                </div>
+            </section>
+        </div>
     </body>
+
+</html>
+</body>
 
 </html>

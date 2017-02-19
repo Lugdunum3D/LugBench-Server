@@ -3,10 +3,10 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
-
-var vulkaninfosmodel = (require('./models/vulkaninfos'))();
-var server = express();
+var vulkaninfos = (require('./models/vulkaninfos'))();
 var config = require('./config');
+
+var server = express();
 
 var db = mongoose.connect(config.db.uri_dev, function (err) {
     if (err) {
@@ -21,20 +21,41 @@ server.get('/', function (req, res) {
     res.sendFile('./index.html');
 });
 
+server.get('/bodytosend', function (_, res) {
+    res.sendFile(__dirname + '/models/vulkaninfos/index.js');
+});
+
 server.put('/benchmark', function (req, res) {
-    let promise = new vulkaninfosmodel(req.body).save().then(function (doc) {
+    let promise = new vulkaninfos(req.body).save().then(function (doc) {
         if (!doc) {
             res.sendStatus(400);
             return;
         }
         res.send({
-            code: 200,
+            status: 200,
             data: doc
         });
     });
 });
 
-server.get('/benchmark', function (req, res) {});
+server.get('/benchmarks', function (req, res) {
+    vulkaninfos.find().then(function (doc) {
+        res.send({
+            status: 200,
+            data: doc
+        })
+    });
+});
+
+server.get('/benchmark/:id', function (req, res) {
+    let id = req.params.id;
+
+    vulkaninfos.findOne({
+        "_id": mongoose.Types.ObjectId(id)
+    }).then(function (doc) {
+        res.send(doc);
+    });
+});
 
 server.listen(process.env.PORT || config.server.port, (err) => {
     if (err) {
