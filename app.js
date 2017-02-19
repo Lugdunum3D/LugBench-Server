@@ -25,7 +25,7 @@ server.get('/bodytosend', function (_, res) {
     res.sendFile(__dirname + '/models/vulkaninfos/index.js');
 });
 
-server.put('/benchmark', function (req, res) {
+server.put('/vulkaninfo', function (req, res) {
     let promise = new vulkaninfos(req.body).save().then(function (doc) {
         if (!doc) {
             res.sendStatus(400);
@@ -38,7 +38,7 @@ server.put('/benchmark', function (req, res) {
     });
 });
 
-server.get('/benchmarks', function (req, res) {
+server.get('/vulkaninfos', function (req, res) {
     vulkaninfos.find().then(function (doc) {
         res.send({
             status: 200,
@@ -47,7 +47,7 @@ server.get('/benchmarks', function (req, res) {
     });
 });
 
-server.get('/benchmark/:id', function (req, res) {
+server.get('/vulkaninfo/:id', function (req, res) {
     let id = req.params.id;
 
     vulkaninfos.findOne({
