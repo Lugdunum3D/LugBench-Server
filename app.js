@@ -3,7 +3,7 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
-var vulkaninfos = (require('./models/vulkaninfos'))();
+var Gpu = (require('./models/Gpu'))();
 var config = require('./config');
 
 var server = express();
@@ -22,11 +22,11 @@ server.get('/', function (req, res) {
 });
 
 server.get('/bodytosend', function (_, res) {
-    res.sendFile(__dirname + '/models/vulkaninfos/index.js');
+    res.sendFile(__dirname + '/models/Gpu/index.js');
 });
 
-server.put('/vulkaninfo', function (req, res) {
-    let promise = new vulkaninfos(req.body).save().then(function (doc) {
+server.put('/gpu', function (req, res) {
+    let promise = new Gpu(req.body).save().then(function (doc) {
         if (!doc) {
             res.sendStatus(400);
             return;
@@ -38,7 +38,7 @@ server.put('/vulkaninfo', function (req, res) {
     });
 });
 
-server.get('/vulkaninfos', function (req, res) {
+server.get('/gpus', function (req, res) {
     vulkaninfos.find().then(function (doc) {
         res.send({
             status: 200,
@@ -47,7 +47,7 @@ server.get('/vulkaninfos', function (req, res) {
     });
 });
 
-server.get('/vulkaninfo/:id', function (req, res) {
+server.get('/gpu/:id', function (req, res) {
     let id = req.params.id;
 
     vulkaninfos.findOne({
