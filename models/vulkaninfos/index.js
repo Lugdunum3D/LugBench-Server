@@ -1,10 +1,20 @@
 var mongoose = require('mongoose');
+require("../../customTypes/int12.js")(mongoose);
+require("../../customTypes/int10.js")(mongoose);
 
 module.exports = function (data) {
     var schema = new mongoose.Schema({
         "properties": {
-            "apiVersion": Number,
-            "driverVersion": Number,
+            "apiVersion": {
+                "major": mongoose.Schema.Types.Int10,
+                "minor": mongoose.Schema.Types.Int10,
+                "patch": mongoose.Schema.Types.Int12
+            },
+            "driverVersion": {
+                "major": mongoose.Schema.Types.Int10,
+                "minor": mongoose.Schema.Types.Int10,
+                "patch": mongoose.Schema.Types.Int12
+            },
             "vendorID": Number,
             "deviceID": Number,
             "deviceName": String,
