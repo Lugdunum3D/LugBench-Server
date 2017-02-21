@@ -195,26 +195,11 @@ module.exports = function (data) {
         },
         "memory": {
             "memoryTypeCount": Number,
-            "memoryTypes": [{
-                "propertyFlags": Number,
-                "heapIndex": Number
-            }],
+            "memoryTypes": [String],
             "memoryHeapCount": Number,
-            "memoryHeaps": [{
-                "size": String,
-                "flags": Number
-            }]
+            "memoryHeaps": [String]
         },
-        "queues": [{
-            "queueFlags": Number,
-            "queueCount": Number,
-            "timestampValidBits": Number,
-            "minImageTransferGranularity": {
-                "width": Number,
-                "height": Number,
-                "depth": Number
-            }
-        }],
+        "queues": [String],
         "extensions": [{
             "extensionName": String,
             "specVersion": Number
