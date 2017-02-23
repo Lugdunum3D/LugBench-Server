@@ -12,7 +12,7 @@ module.exports = function (mongoose) {
             throw new Error('Int12: ' + val + ' is not a number');
         }
         _val = Math.round(_val);
-        if (_val < 0 || _val < 0xFFF) {
+        if (_val < 0 || _val > 0xFFF) {
             throw new Error('Int12: ' + val +
                 ' is outside of the range of valid 12-bit ints');
         }

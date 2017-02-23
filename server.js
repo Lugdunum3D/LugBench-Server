@@ -5,14 +5,20 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 
 var config = require('./config');
-var gpu = (require('./api/v1/models/gpu'))();
-
 var server = express();
+
+var db = mongoose.connect(config.db.uri_mongodb, (err) => {
+    if (err) {
+        console.log(err);
+        return;
+    }
+	console.log("Is connected to the db");
+});
 
 server.use(express.static(__dirname));
 server.use(bodyparser.json());
 
-//server.set('view engine', 'ejs');
+server.set('view engine', 'ejs');
 
 var api = require('./api');
 

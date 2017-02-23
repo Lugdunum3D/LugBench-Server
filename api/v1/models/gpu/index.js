@@ -3,7 +3,7 @@ require("../../customTypes/int12.js")(mongoose);
 require("../../customTypes/int10.js")(mongoose);
 require("../../customTypes/formats.js")(mongoose);
 
-module.exports = function (data) {
+module.exports = function () {
     var schema = new mongoose.Schema({
         "properties": {
             "apiVersion": {
@@ -19,7 +19,7 @@ module.exports = function (data) {
             "vendorID": Number,
             "deviceID": Number,
             "deviceName": String,
-            "deviceType": Number,
+            "deviceType": String,
             "pipelineCacheUUID": [Number],
             "limits": {
                 "maxImageDimension1D": Number,
@@ -196,11 +196,26 @@ module.exports = function (data) {
         },
         "memory": {
             "memoryTypeCount": Number,
-            "memoryTypes": [String],
+            "memoryTypes": [{
+                "heapIndex": Number,
+                "propertyFlags": [String]
+            }],
             "memoryHeapCount": Number,
-            "memoryHeaps": [String]
+            "memoryHeaps": [{
+                "heapIndex": Number,
+                "propertyFlags": [String]
+            }]
         },
-        "queues": [String],
+        "queues": [{
+            "minImageTransferGranularity": {
+                "depth": Number,
+                "height": Number,
+                "width": Number
+            },
+            "queueCount": Number,
+            "queueFlags": [String],
+            "timestampValidBits": Number
+        }],
         "extensions": [{
             "extensionName": String,
             "specVersion": Number
