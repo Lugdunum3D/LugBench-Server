@@ -31,7 +31,11 @@ router.get('/gpus', function (req, res) {
             status: 200,
             data: doc
         })
+        //res.render('pages/gpus', {
+        //  gpus: doc
+        //});
     });
+
 });
 
 router.get('/gpu/:id', function (req, res) {

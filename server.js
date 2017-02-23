@@ -5,11 +5,14 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 
 var config = require('./config');
+var gpu = (require('./api/v1/models/gpu'))();
 
 var server = express();
 
 server.use(express.static(__dirname));
 server.use(bodyparser.json());
+
+//server.set('view engine', 'ejs');
 
 var api = require('./api');
 
