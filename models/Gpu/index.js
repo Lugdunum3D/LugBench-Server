@@ -208,5 +208,6 @@ module.exports = function (data) {
             [mongoose.Schema.Types.Mixed]
         ]
     });
+
     return mongoose.model('Gpu', schema);
 };

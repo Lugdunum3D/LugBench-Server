@@ -39,10 +39,10 @@ server.put('/gpu', function (req, res) {
 });
 
 server.get('/gpus', function (req, res) {
-    vulkaninfos.find().then(function (doc) {
+    Gpu.find().then(function (gpus) {
         res.send({
             status: 200,
-            data: doc
+            gpus: gpus
         })
     });
 });
@@ -50,7 +50,7 @@ server.get('/gpus', function (req, res) {
 server.get('/gpu/:id', function (req, res) {
     let id = req.params.id;
 
-    vulkaninfos.findOne({
+    Gpu.findOne({
         "_id": mongoose.Types.ObjectId(id)
     }).then(function (doc) {
         res.send(doc);
