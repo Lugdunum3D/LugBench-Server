@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include ../partials/head %>
+    </head>
+    <body class="container-fluid">
+        <header>
+            <%- include ../partials/header %>
+        </header>
+        <main>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Device name</th>
+                                <th>Device Id</th>
+                                <th>Device Type</th>
+                                <th>Api version</th>
+                                <th>Vendor ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% gpus.forEach(function(gpu){ %>
+                            <tr>
+                                <td>
+                                    <a href="/app/gpu/<%= gpu.id %>"><%= gpu.id %></a>
+                                </td>
+                                <td>
+                                    <%= gpu.properties.deviceName %>
+                                </td>
+                                <td>
+                                    <%= gpu.properties.deviceID %>
+                                </td>
+                                <td>
+                                    <%= gpu.properties.deviceType %>
+                                </td>
+                                <td>
+                                    <%= gpu.properties.apiVersion %>
+                                </td>
+                                <td>
+                                    <%= gpu.properties.vendorID %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </main>
+        <footer>
+            <%- include ../partials/footer %>
+        </footer>
+    </body>
+</html>

@@ -27,7 +27,6 @@ router.get('/gpus', (req, res) => {
             data: doc
         })
     });
-
 });
 
 router.get('/gpu/:id', (req, res) => {
