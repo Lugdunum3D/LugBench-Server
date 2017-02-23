@@ -1,9 +1,8 @@
 module.exports = {
     server: {
-        port: 5000
+        port: process.env.PORT || 5000
     },
     db: {
-        uri_prod: process.env.PROD_MONGODB,
-        uri_dev: process.env.DEV_MONGODB
+        uri_mongodb: process.env.URI_MONGODB,
     }
 };

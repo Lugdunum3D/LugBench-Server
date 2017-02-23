@@ -12,7 +12,7 @@ module.exports = function (mongoose) {
             throw new Error('Int10: ' + val + ' is not a number');
         }
         _val = Math.round(_val);
-        if (_val > -0x200 && _val < 0x1FF) {
+        if (_val < 0 || _val > 0x3FF) {
             throw new Error('Int10: ' + val +
                 ' is outside of the range of valid 10-bit ints');
         }
