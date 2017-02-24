@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+}
+
+section {
+    display: block;
+    padding: 10px;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
