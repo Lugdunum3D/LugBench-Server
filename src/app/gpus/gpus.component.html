@@ -1,0 +1,63 @@
+<div class="gpus-container">
+  <div class="table-responsive">
+    <table class="table table-gpus table-hover">
+      <thead>
+        <tr>
+          <th class="text-center">
+            Device
+          </th>
+          <th class="text-center">
+            Driver
+          </th>
+          <th class="text-center">
+            api
+          </th>
+          <th class="text-center">
+            Vendor
+          </th>
+          <th class="text-center">
+            Type
+          </th>
+          <th class="text-center">
+            OS
+          </th>
+          <th class="text-center">
+            platform
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gpu of gpus" (click)="goToGpu(gpu._id)">
+          <td class="text-center">
+            {{ gpu.properties.deviceName }}
+          </td>
+          <td class="text-center" *ngIf="gpu.properties">
+            {{ gpu.properties.deviceID }}
+          </td>
+          <td class="text-center" *ngIf="gpu.properties">
+            {{ gpu.properties.apiVersion.major }}.{{ gpu.properties.apiVersion.minor }}.{{ gpu.properties.apiVersion.patch }}
+          </td>
+          <td class="text-center" *ngIf="gpu.properties">
+            {{ gpu.properties.vendorName }}
+          </td>
+          <td class="text-center">
+            {{ gpu.properties.deviceType }}
+          </td>
+          <td class="text-center" *ngIf="gpu.properties">
+            {{ gpu.SwapChainInfo && gpu.SwapChainInfo[0].surfaceExtension.includes('xcb') ? 'Linux' : 'Windows' }}
+          </td>
+          <td class="text-center">
+            {{ "x86_64" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center" *ngIf="gpus && !gpus.length">
+    <h2>
+    <strong>
+    No data available.
+    </strong>
+    </h2>
+  </div>
+</div>
