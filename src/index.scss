@@ -35,9 +35,30 @@ a {
 }
 .header-title {
   flex: 1;
+  display: -webkit-flex;
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  align-items: center;
+  justify-content: flex-end;
+
   font-size: 1.5rem;
   margin: 1rem;
+
+  .lugbench {
+    margin-right: auto;
+    img {
+      width: 120px;
+    }
+  }
+
+  .github {
+    img {
+      width: 40px;
+    }
+  }
 }
+
 .header-date {
   flex: 1;
   text-align: right;
