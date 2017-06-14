@@ -9,6 +9,8 @@ import {HeaderComponent} from './header.component';
 import {TitleComponent} from './title.component';
 import {FooterComponent} from './footer.component';
 
+import {DownloadComponent} from './download.component';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -20,7 +22,8 @@ import {FooterComponent} from './footer.component';
     MainComponent,
     HeaderComponent,
     TitleComponent,
-    FooterComponent
+    FooterComponent,
+    DownloadComponent
   ],
   bootstrap: [MainComponent]
 })
